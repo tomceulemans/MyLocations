@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreLocation
+import CoreData
 
 private let dateFormatter: NSDateFormatter = {
     let formatter = NSDateFormatter()
@@ -20,6 +21,8 @@ class LocationDetailsViewController : UITableViewController {
     var coordinate = CLLocationCoordinate2D(latitude: 0, longitude: 0)
     var placemark : CLPlacemark?
     var categoryName = "No Category"
+    var date = NSDate()
+    var managedObjectContext: NSManagedObjectContext!
     
     @IBOutlet weak var descriptionTextView: UITextView!
     @IBOutlet weak var categoryLabel: UILabel!
@@ -43,7 +46,7 @@ class LocationDetailsViewController : UITableViewController {
             addressLabel.text = ""
         }
         
-        dateLabel.text = formatDate(NSDate())
+        dateLabel.text = formatDate(date)
         
         let gestureRecognizer = UITapGestureRecognizer(target: self, action: Selector("hideKeyboard:"))
         gestureRecognizer.cancelsTouchesInView = false
@@ -53,6 +56,21 @@ class LocationDetailsViewController : UITableViewController {
     @IBAction func done() {
         let hudView = HudView.hudInView(navigationController!.view, animated: true)
         hudView.text = "Tagged"
+        
+        let location = NSEntityDescription.insertNewObjectForEntityForName("Location", inManagedObjectContext: managedObjectContext) as! Location
+        
+        location.locationDescription = descriptionTextView.text
+        location.category = categoryName
+        location.longitude = coordinate.longitude
+        location.latitude = coordinate.latitude
+        location.date = date
+        location.placemark = placemark
+        
+        do {
+            try managedObjectContext.save()
+        } catch {
+            fatalCoreDataError(error)
+        }
         
         afterDelay(0.6) {
             self.dismissViewControllerAnimated(true, completion: nil)
