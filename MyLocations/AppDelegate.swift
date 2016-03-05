@@ -58,6 +58,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let navigationController = tabBarViewControllers[1] as! UINavigationController
             let locationsViewController = navigationController.viewControllers[0] as! LocationsViewController
             locationsViewController.managedObjectContext = managedObjectContext
+        
+            //why? this prevents some nasty CoreData issue with cached results
+            let _ = locationsViewController.view
         }
         
         listenForFatalCoreDataNotifications()
