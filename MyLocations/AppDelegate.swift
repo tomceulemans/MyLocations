@@ -61,6 +61,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
             //why? this prevents some nasty CoreData issue with cached results
             let _ = locationsViewController.view
+            
+            let mapViewController = tabBarViewControllers[2] as! MapViewController
+            mapViewController.managedObjectContext = managedObjectContext
         }
         
         listenForFatalCoreDataNotifications()
