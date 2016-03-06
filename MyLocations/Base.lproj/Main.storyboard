@@ -147,11 +147,11 @@
                             </tableViewSection>
                             <tableViewSection id="yHp-5v-dUT">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="vRj-s2-DMe">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="vRj-s2-DMe">
                                         <rect key="frame" x="0.0" y="265.5" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vRj-s2-DMe" id="Cpo-J7-5SQ">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="287" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Photo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="cgt-0e-HV4">
@@ -161,6 +161,10 @@
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="Ekh-ed-1QD">
+                                                    <rect key="frame" x="104" y="8" width="176" height="27.5"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -285,10 +289,12 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="addPhotoLabel" destination="cgt-0e-HV4" id="gqv-2K-8ge"/>
                         <outlet property="addressLabel" destination="Sw0-GW-RqH" id="7t4-31-jzu"/>
                         <outlet property="categoryLabel" destination="U58-kz-D02" id="QQY-BZ-N9H"/>
                         <outlet property="dateLabel" destination="mis-j2-7cI" id="bqi-h2-KbK"/>
                         <outlet property="descriptionTextView" destination="nU8-HM-M2f" id="lao-bj-fP7"/>
+                        <outlet property="imageView" destination="Ekh-ed-1QD" id="rbX-nW-HO7"/>
                         <outlet property="latitudeLabel" destination="pMT-Cg-nOs" id="xlq-w8-8k7"/>
                         <outlet property="longitudeLabel" destination="yjX-Lx-htA" id="Cr2-OK-g6u"/>
                     </connections>
@@ -387,7 +393,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="LocationCell" rowHeight="57" id="ooh-Gs-npl" customClass="LocationCell" customModule="MyLocations" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="92" width="320" height="57"/>
+                                <rect key="frame" x="0.0" y="28" width="320" height="57"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ooh-Gs-npl" id="Rwq-Hk-MSJ">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="56.5"/>
